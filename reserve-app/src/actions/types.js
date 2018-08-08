@@ -1,0 +1,3 @@
+export const EXIBIR_CARREGANDO = 'EXIBIR_CARREGANDO'
+
+export const MODAL_TOGGLE = 'MODAL_TOGGLE'

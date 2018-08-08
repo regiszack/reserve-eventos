@@ -1,0 +1,50 @@
+.header-fixed .app-header {
+    height: 60px;
+}
+
+.app-header .header-row {
+    height: 28px;
+    background-color: #2a2c36;
+}
+
+.app-header .barra-verde-row {
+    height: 10px;
+    background-color: #5db300;
+}
+
+.app-header .header-link {
+    padding: 5px 10px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: "Open Sans", "Segoe UI";
+}
+
+.app-header .header-link:hover {
+    background-color: #111;
+}
+
+.app-header .header-ul {
+    width: 99.48%;
+    padding-top: 3px;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #2a2c36;
+}
+
+.app-header .btn-no-outline {
+    padding-left: 20px;
+    border: none;
+    background-color: white
+}
+
+.app-header .link-priorizator {
+    color: #5db300 !important;
+}
+
+.app-header .navbar-brand {
+    background-color: white !important;
+    border-bottom: none !important;
+}
