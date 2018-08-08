@@ -7,7 +7,7 @@ export default class RestClientsManager {
   constructor() {
     
     this.config = {
-      "baseURL": 'http://localhost:58952/api',
+      "baseURL": 'http://localhost:58951/api',
     }
 
     this.axios = axios.create(this.config)
