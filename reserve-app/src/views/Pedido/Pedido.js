@@ -202,7 +202,7 @@ class Pedido extends Component {
 
     const finalizarPedido = await this.props.restClientManager.pedido.efetuarPedido(comando, idUsuario)
 
-    if (finalizarPedido !== 0)
+    if (finalizarPedido >= 0)
       return;
 
     toast.success("Pedido Finalizado com sucesso, detalhe da compra enviado para o email cadastrado.")
