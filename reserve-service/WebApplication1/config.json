@@ -1,0 +1,24 @@
+﻿{
+  "ConnectionStrings": {
+    "WebAppDB": "User Id=root;Password=root;server=localhost;Database=reserve;Integrated Security=true;Pooling=true"
+  },
+ 
+  "TokenConfigurations": {
+    "Audience": "ExemploAudience",
+    "Issuer": "ExemploIssuer",
+    "Seconds": 12000
+  },
+  "Logging": {
+    "IncludeScopes": false,
+    "Debug": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "Console": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
+  }
+}
