@@ -1,0 +1,43 @@
+.div-view-pedido {
+    font-family: cursive;
+    text-align: center;
+}
+
+.div-view-pedido .cardbody-view-pedido {
+     height: 250px 
+}
+
+.div-view-pedido .cardtitle-view-pedido {
+    padding: 10px 
+}
+
+.div-view-pedido .row-view-pedido {
+    padding-top: 50px;
+    padding-left: 20%;
+}
+
+.div-view-pedido .label-view-pedido {
+    padding-top: 10px;
+    padding-left: 50px;
+    text-align: left 
+}
+
+.div-view-pedido .input-view-pedido {
+    margin-left: 10px;
+    width: 300px;
+}
+
+.div-view-pedido .row-adicionar-view-pedido {
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.div-view-pedido .cardbody-row2-view-pedido {
+    height: 200px;
+    padding: 10px;
+}
+
+.div-view-pedido .cardtext-row2-view-pedido {
+    padding: 20px;
+}

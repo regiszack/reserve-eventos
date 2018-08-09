@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { toast } from 'react-toastify'
 import { Cartao, Evento, Pedido, Usuario } from './clients'
 
 export default class RestClientsManager {

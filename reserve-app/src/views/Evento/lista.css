@@ -1,0 +1,13 @@
+.card-view-lista-evento {
+    font-family: cursive; 
+    text-align: center;
+}
+
+.card-view-lista-evento .col-view-lista-evento {
+    padding-top: 20px;
+}
+
+.card-view-lista-evento .row-detalhe-view-lista-evento {
+    padding-left: 40%;
+    padding-top: 50px;
+}

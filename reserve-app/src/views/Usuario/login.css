@@ -1,0 +1,24 @@
+.card-view-login {
+    font-family: cursive;
+    text-align: center;
+}
+
+    .card-view-login .h5-view-login {
+        padding: 10px;
+    }
+
+    .card-view-login .row-view-login {
+        padding: 20px;
+    }
+
+    .card-view-login .card-view-login {
+        padding-bottom: 10px;
+    }
+
+    .card-view-login .row-view-botao {
+        padding-bottom: 20px;
+    }
+
+    .card-view-login .button-view-login {
+        margin-left: 40%;
+    }

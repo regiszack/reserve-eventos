@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Card, Col, Row } from 'reactstrap'
 import { FontAwesome } from '../../components/FontAwesome'
 import { toast } from 'react-toastify'
+import './detalhe.css'
 
 class EventoDetalhe extends Component {
   constructor() {
@@ -24,11 +25,11 @@ class EventoDetalhe extends Component {
     }
 
     return (
-      <div className='detalhes-evento' style={{ 'fontFamily': 'cursive', 'textAlign': 'center' }}>
+      <div className='div-view-detalhes-evento'>
         <Card>
           <Col xs='12'>
             <img src={evento.imagem} width='100%' height='300px' alt={evento.nome} />
-            <h1 style={{ "textAlign": "center", "color": "blue", "paddingBottom": '30px', "paddingTop": '30px' }}>{evento.nome}</h1>
+            <h1 className='h1-view-detalhes-evento' style={{ "textAlign": "center", "color": "blue", "paddingBottom": '30px', "paddingTop": '30px' }}>{evento.nome}</h1>
           </Col>
           <Col xs='12'>
             <Row>

@@ -1,0 +1,11 @@
+.div-view-detalhes-evento {
+    font-family: cursive;
+    text-align: center 
+}
+
+.div-view-detalhes-evento .h1-view-detalhes-evento {
+    text-align: center;
+    color: blue; 
+    padding-bottom: 30px;
+    padding-top: 30px;
+}

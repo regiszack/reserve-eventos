@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Card, CardText, Col, Row } from 'reactstrap'
+import { Button, Card, Col, Row } from 'reactstrap'
 import { toast } from 'react-toastify'
+import './login.css'
 
 class UsuarioEntrar extends Component {
   render() {
@@ -9,23 +10,21 @@ class UsuarioEntrar extends Component {
         <Row>
           <Col xs='4' />
           <Col xs='4'>
-            <Card style={{ 'fontFamily': 'cursive', 'textAlign': 'center' }}>
-              <CardText>
-                <h5 style={{ 'padding': '10px' }}> Login </h5>
-                <Row style={{ 'padding': '20px' }}>
-                  <Col xs='12' style={{ 'paddingBottom': '10px' }}>
-                    <input placeholder="Usuario" name='login' type='text' className='form-control' onChange={(e) => this.obterDadosUsuario(e)} required />
-                  </Col>
-                  <Col xs='12' style={{ 'paddingBottom': '10px' }}>
-                    <Row style={{ 'padding': '20px' }}>
-                      <input placeholder="Senha" name='senha' type='password' className='form-control' onChange={(e) => this.obterDadosUsuario(e)} required />
-                    </Row>
-                  </Col>
-                </Row>
-                <Row style={{ 'paddingBottom': '20px' }}>
-                  <Button onClick={() => this.entrar()} color="primary" size="md" style={{ 'marginLeft': '40%' }}>Entrar</Button>
-                </Row>
-              </CardText>
+            <Card className='card-view-login'>
+              <h5 className='h5-view-login'> Login </h5>
+              <Row className='row-view-login'>
+                <Col xs='12' className='card-view-login'>
+                  <input placeholder="Usuario" name='login' type='text' className='form-control' onChange={(e) => this.obterDadosUsuario(e)} required />
+                </Col>
+                <Col xs='12' className='card-view-login'>
+                  <Row className='row-view-login'>
+                    <input placeholder="Senha" name='senha' type='password' className='form-control' onChange={(e) => this.obterDadosUsuario(e)} required />
+                  </Row>
+                </Col>
+              </Row>
+              <Row className='row-view-botao'>
+                <Button onClick={() => this.entrar()} color="primary" size="md" className='button-view-login'>Entrar</Button>
+              </Row>
             </Card>
           </Col>
         </Row>
@@ -66,10 +65,10 @@ class UsuarioEntrar extends Component {
 
 
     toast.success('Seja bem vindo(a) ' + resposta.data.usuarioLogado.nome)
-    
+
     window.localStorage.setItem('token', resposta.data.accessToken);
     window.localStorage.setItem('userId', resposta.data.usuarioLogado.id);
-    
+
     this.props.history.push({
       "pathname": '/evento',
       "state": {

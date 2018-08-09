@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Card, Col } from 'reactstrap'
+import { Button, Card, Col, Row } from 'reactstrap'
+import './lista.css'
 
 class EventoLista extends Component {
   constructor() {
@@ -17,13 +18,13 @@ class EventoLista extends Component {
   render() {
     return this.state.eventos.map(evento => {
       return (
-        <Card key={evento.id}>
-          <div className='row' style={{ 'fontFamily': 'cursive', 'textAlign': 'center' }}>
+        <Card key={evento.id} className='card-view-lista-evento'>
+          <Row>
             <Col xl='5'>
               <img src={evento.imagem} width="100%" height="100%" alt={evento.nome}/>
             </Col>
             {this.renderDados(evento)}
-          </div>
+          </Row>
         </Card>
       )
     })
@@ -31,20 +32,20 @@ class EventoLista extends Component {
 
   renderDados(evento) {
     return (
-      <Col xl='7' style={{ 'paddingTop': '20px'}}>
-        <div className='row' >
+      <Col xl='7' className='col-view-lista-evento'>
+        <Row>
           <h2>{evento.nome}</h2>
-        </div>
-        <div className='row' >
+        </Row>
+        <Row>
           <h5>De: {evento.dataInicio} até {evento.dataFim}</h5>
-        </div>
+        </Row>
         <br />
-        <div className='row' >
+        <Row>
           <h5>Local: {evento.local}</h5>
-        </div>
-        <div className='row' style={{ "paddingLeft": "40%", "paddingTop": "50px" }}>
+        </Row>
+        <Row  className='row-detalhe-view-lista-evento'>
           <a href={`#/evento/${evento.id}`}><Button color="primary" size="lg">Detalhes</Button></a>
-        </div>
+        </Row>
       </Col>
     )
   }
