@@ -15,7 +15,7 @@ namespace WebApi.AcessoDados
             _appContext = appContext;
         }
 
-        public void Salvar(QuantEEventoCommand comando, int idUsuario)
+        public void Salvar(CriarPedidoComando comando, int idUsuario)
         {
             Usuario usuario = _appContext.Usuarios.FirstOrDefault(p => p.Id == idUsuario);
             Evento evento = _appContext.Eventos.FirstOrDefault(p => p.Nome == comando.NomeEvento);
