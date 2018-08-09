@@ -6,6 +6,6 @@ namespace WebApi.AcessoDados
 {
     public interface IPedidoRepository
     {
-        void Salvar(QuantEEventoCommand comando, int idUsuario);
+        void Salvar(CriarPedidoComando comando, int idUsuario);
     }
 }

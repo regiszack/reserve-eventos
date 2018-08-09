@@ -18,7 +18,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("usuario/{idUsuario:int}")]
-        public IActionResult CriarPedido([FromBody]QuantEEventoCommand comando, int idUsuario)
+        public IActionResult CriarPedido([FromBody]CriarPedidoComando comando, int idUsuario)
         {
             try
             {
