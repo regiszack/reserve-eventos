@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Card, CardText, Col, Row } from 'reactstrap'
+import { Button, Card, Col, Row } from 'reactstrap'
 import { toast } from 'react-toastify'
+import './cadastro.css'
 
 class UsuarioCadastro extends Component {
   constructor(){
@@ -13,20 +14,23 @@ class UsuarioCadastro extends Component {
 
   render() {
     return (
-      <Card style={{'fontFamily': 'cursive'}}>
-        <CardText>
+      <Card className='card-view-cadastro'>
           <Col xs='12'>
             <Row>
               <Col xs='6'>
-                <h5 style={{ 'padding': '10px' }}> Dados Cadastrais </h5>
+                <h5 className='h5-view-cadastro'> Dados Cadastrais </h5>
                 <Row>
-                  <Col xs='8' style={{ 'paddingBottom': '10px' }}>
+                  <Col xs='8' className='col-view-cadastro'>
                     <input placeholder="Nome" name='nome' type='text' className='form-control' onChange={(e) => this.obterDadosUsuario(e)}/>
                   </Col>
-                  <Col xs='4' style={{ 'paddingBottom': '10px' }}>
+                  <Col xs='4' className='col-view-cadastro'>
                     <Row >
                       <label>Sexo: </label>
-                      <select autocomplete="off" name="genero" className="form-control" style={{ 'marginLeft': '10px', 'width': '135px' }} onChange={(e) => this.obterDadosUsuario(e)} value={this.state.genero}>
+                      <select autoComplete="off" name="genero" 
+                        className='genero-select-view-cadastro form-control' 
+                        onChange={(e) => this.obterDadosUsuario(e)} 
+                        value={this.state.genero}
+                      >
                         <option value="0">Masculino</option>
                         <option value="1">Feminino</option>
                         <option value="">-</option>
@@ -35,7 +39,7 @@ class UsuarioCadastro extends Component {
                   </Col>
                 </Row>
                 <input placeholder="Email" name='email' type='email' className='form-control' onChange={(e) => this.obterDadosUsuario(e)}/>
-                <Row style={{ 'paddingBottom': '10px', 'paddingTop': '10px' }}>
+                <Row className='row-view-cadastro'>
                   <Col xs='8'>
                     <input placeholder="CPF" name='cpf' type='number' className='form-control' onChange={(e) => this.obterDadosUsuario(e)}/>
                   </Col>
@@ -43,7 +47,7 @@ class UsuarioCadastro extends Component {
                     <input placeholder="Data Nascimento" name='dataNascimento' type='date' className='form-control' onChange={(e) => this.obterDadosUsuario(e)}/>
                   </Col>
                 </Row>
-                <Row style={{ 'paddingBottom': '10px', 'paddingTop': '10px' }}>
+                <Row className='row-view-cadastro'>
                   <Col xs='4'>
                     <input placeholder="Usuario" name='login' type='text' className='form-control' onChange={(e) => this.obterDadosUsuario(e)}/>
                   </Col>
@@ -56,19 +60,19 @@ class UsuarioCadastro extends Component {
                 </Row>
               </Col>
               <Col xs='6'>
-                <h5 style={{ 'padding': '10px' }}> Endereço </h5>
+                <h5 className='h5-view-cadastro'> Endereço </h5>
                 <Row>
-                  <Col xs='8' style={{ 'paddingBottom': '10px' }}>
+                  <Col xs='8' className='col-view-cadastro'>
                     <input placeholder="Logradouro" name='logradouro' type='text' className='form-control' onChange={(e) => this.obterDadosEndereco(e)}/>
                   </Col>
-                  <Col xs='4' style={{ 'paddingBottom': '10px'}}>
+                  <Col xs='4' className='col-view-cadastro'>
                     <Row >
-                      <input placeholder="Numero" name='numero' type='number' className='form-control' style={{'marginRight': '15px'}} onChange={(e) => this.obterDadosEndereco(e)}/>
+                      <input placeholder="Numero" name='numero' type='number' className='numero-input-view-cadastro form-control' onChange={(e) => this.obterDadosEndereco(e)}/>
                     </Row>
                   </Col>
-                </Row>
+                </Row >
                 <input placeholder="Complemento" name='complemento' id='complemento' type='text' className='form-control' onChange={(e) => this.obterDadosEndereco(e)}/>
-                <Row style={{ 'paddingBottom': '10px', 'paddingTop': '10px' }}>
+                <Row className='row-view-cadastro'>
                   <Col xs='4'>
                     <input placeholder="CEP" name='cep' type='number' className='form-control' onChange={(e) => this.obterDadosEndereco(e)}/>
                   </Col>
@@ -79,13 +83,12 @@ class UsuarioCadastro extends Component {
                     <input placeholder="Estado" name='estado' type='text' className='form-control' onChange={(e) => this.obterDadosEndereco(e)}/>
                   </Col>
                 </Row>
-                <Row style={{}}>
-                <Button onClick={() => this.cadastrarUsuario()} color="primary" size="md" style={{'marginLeft': '40%'}}>Cadastrar</Button>
+                <Row>
+                <Button onClick={() => this.cadastrarUsuario()} color="primary" size="md" className='button-view-cadastro'>Cadastrar</Button>
                 </Row>
               </Col>
             </Row>
           </Col>
-        </CardText>
       </Card>
     )
   }

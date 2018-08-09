@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Button, Card, CardBody, CardTitle, CardText, Col, Row, Label, Input, Form, FormGroup } from 'reactstrap'
+import { Button, Card, CardBody, CardTitle, Col, Row, Label, Input } from 'reactstrap'
 import { toast } from 'react-toastify'
+import './pedido.css'
 
 class Pedido extends Component {
   constructor(props) {
@@ -31,58 +32,52 @@ class Pedido extends Component {
   render() {
     if (this.state.evento == null || this.state.quantidade == null)
       return (
-        <Row> 
+        <Row>
           <h5>Nenhum evento selecionado, favor voltar a pagina de eventos. clicando em <strong>Home</strong></h5>
         </Row>
       )
 
     const { quantidade, evento } = this.state
     return (
-      <div className='main-container' style={{ 'fontFamily': 'cursive', 'textAlign': 'center' }}>
+      <div className='div-view-pedido main-container'>
         <Row>
           <Col xs='6'>
             <Card>
-              <CardBody style={{ 'height': '250px' }}>
-                <CardTitle style={{ 'padding': '10px' }}> Cartões </CardTitle>
-                <CardText>
-                  <h6>Ola Regis! Estes são os seu cartões ja cadastrados </h6>
-                  <Row style={{ 'paddingTop': '50px' }}>
-                    <Label for="exampleSelect" style={{ 'paddingTop': '10px', 'paddingLeft': '50px', 'textAlign': 'left' }}>Cartões Cadastrados</Label>
-                    <Input type="select" name="select" id="exampleSelect" style={{ 'marginLeft': '10px', 'width': '300px' }}>
-                      {this.listarCartoes()}
-                    </Input>
-                  </Row>
-                </CardText>
+              <CardBody className='cardbody-view-pedido'>
+                <CardTitle className='cardtitle-view-pedido'> Cartões </CardTitle>
+                <h6>Olá, Estes são os seus cartões ja cadastrados </h6>
+                <Row className='row-view-pedido'>
+                  <Label for="exampleSelect">Cartões Cadastrados</Label>
+                  <Input type="select" name="select" className='input-view-pedido'>
+                    {this.listarCartoes()}
+                  </Input>
+                </Row>
               </CardBody>
             </Card>
           </Col>
           <Col xs='6'>
             <Card>
-              <CardBody style={{ 'height': '250px' }}>
-                <CardTitle style={{ 'padding': '10px' }}> Adicionar Cartão </CardTitle>
-                <CardText>
-                  <Form >
-                    <Row>
-                      <Col xs='6'>
-                        <FormGroup style={{ 'padding': '10px' }}>
-                          <Input type="number" name="numeroCartao" id="numeroCartao" onChange={(e) => this.obterDadosCartao(e)} placeholder="Numero do Cartão" />
-                        </FormGroup>
-                        <FormGroup style={{ 'padding': '10px' }}>
-                          <Input type="number" name="validade" id="validade" onChange={(e) => this.obterDadosCartao(e)} placeholder="Validade" />
-                        </FormGroup>
-                      </Col>
-                      <Col xs='6'>
-                        <FormGroup style={{ 'padding': '10px' }}>
-                          <Input type="text" name="nomeTitular" id="nomeTitular" onChange={(e) => this.obterDadosCartao(e)} placeholder="Nome Titular" />
-                        </FormGroup>
-                        <FormGroup style={{ 'padding': '10px' }}>
-                          <Input type="number" name="cvv" id="cvv" onChange={(e) => this.obterDadosCartao(e)} placeholder="CVV" />
-                        </FormGroup>
-                      </Col>
+              <CardBody className='cardbody-view-pedido'>
+                <CardTitle className='cardtitle-view-pedido'> Adicionar Cartão </CardTitle>
+                <Row>
+                  <Col xs='6'>
+                    <Row className='row-adicionar-view-pedido'>
+                      <Input type="number" name="numeroCartao" id="numeroCartao" onChange={(e) => this.obterDadosCartao(e)} placeholder="Numero do Cartão" value={this.state.numero} />
                     </Row>
-                    <Button onClick={this.adicionarCartao} color="primary" size="md">Adicionar</Button>
-                  </Form>
-                </CardText>
+                    <Row className='row-adicionar-view-pedido'>
+                      <Input type="number" name="validade" id="validade" onChange={(e) => this.obterDadosCartao(e)} placeholder="Validade" value={this.state.validade} />
+                    </Row>
+                  </Col>
+                  <Col xs='6'>
+                    <Row className='row-adicionar-view-pedido'>
+                      <Input type="text" name="nomeTitular" id="nomeTitular" onChange={(e) => this.obterDadosCartao(e)} placeholder="Nome Titular" value={this.state.titular} />
+                    </Row>
+                    <Row className='row-adicionar-view-pedido'>
+                      <Input type="number" name="cvv" id="cvv" onChange={(e) => this.obterDadosCartao(e)} placeholder="CVV" value={this.state.cvv} />
+                    </Row>
+                  </Col>
+                </Row>
+                <Button onClick={this.adicionarCartao} color="primary" size="md">Adicionar</Button>
               </CardBody>
             </Card>
           </Col>
@@ -90,30 +85,27 @@ class Pedido extends Component {
         <Row>
           <Col xs='6'>
             <Card>
-              <CardBody style={{ 'height': '200px' }}>
-                <CardText style={{ 'padding': '30px' }}>
-                  <h5>A Reserve Eventos é uma empresa de compra e venda de ingressos para enventos variados.
+              <CardBody className='cardbody-row2-view-pedido'>
+                <h5>A Reserve Eventos é uma empresa de compra e venda de ingressos para enventos variados.
                   Não se responsabiliza por qualquer acontecimento no interior do evento.</h5>
-                  <img src='img/logo.png' alt='Reserve Eventos' />
-                </CardText>
+                <img src='img/logo.png' alt='Reserve Eventos' />
               </CardBody>
             </Card>
           </Col>
           <Col xs='6'>
             <Card>
-              <CardBody style={{ 'height': '200px' }}>
-                <CardTitle style={{ 'padding': '20px' }}> Resumo da Compra </CardTitle><CardText style={{ 'padding': '10px' }}>
-                  <Row>
-                    <Col xs='6'>
-                      <h5>Quantidade e Evento</h5>
-                      <p>{quantidade} x {evento.nome}</p>
-                    </Col>
-                    <Col xs='6'>
-                      <h4>Total: R$ {this.obterValorTotal(quantidade, evento.preco)} </h4>
-                    </Col>
-                  </Row>
-                  <Button onClick={() => this.finalizarCompra(quantidade, evento.nome)} color="primary" size="md">Finalizar Compra</Button>
-                </CardText>
+              <CardBody className='cardbody-row2-view-pedido'>
+                <CardTitle className='cardtext-row2-view-pedido'> Resumo da Compra </CardTitle>
+                <Row>
+                  <Col xs='6'>
+                    <h5>Quantidade e Evento</h5>
+                    <p>{quantidade} x {evento.nome}</p>
+                  </Col>
+                  <Col xs='6'>
+                    <h4>Total: R$ {this.obterValorTotal(quantidade, evento.preco)} </h4>
+                  </Col>
+                </Row>
+                <Button onClick={() => this.finalizarCompra(quantidade, evento.nome)} color="primary" size="md">Finalizar Compra</Button>
               </CardBody>
             </Card>
           </Col>
@@ -150,7 +142,7 @@ class Pedido extends Component {
   }
 
   listarCartoes() {
-    if(!this.state.cartoes)
+    if (!this.state.cartoes)
       return;
 
     return this.state.cartoes.map(cartao => {
@@ -181,7 +173,7 @@ class Pedido extends Component {
     if (!adicionarCartao)
       return;
 
-    toast.success("Cartao adicionado")
+    toast.success("Cartao adicionado e já disponibilizado na lista")
 
     this.obterCartoesUsuario()
   }
@@ -216,7 +208,11 @@ class Pedido extends Component {
       return;
 
     this.setState({
-      "cartoes": cartoes.data
+      "cartoes": cartoes.data,
+      "numero": '',
+      "validade": '',
+      "titular": '',
+      "cvv": ''
     })
   }
 }

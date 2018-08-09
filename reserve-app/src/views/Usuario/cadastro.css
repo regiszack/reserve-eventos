@@ -1,0 +1,29 @@
+.card-view-cadastro {
+    font-family: cursive;
+}
+
+.card-view-cadastro .h5-view-cadastro {
+     padding: 10px;
+}
+
+.card-view-cadastro .col-view-cadastro {
+    padding-bottom: 10px;
+} 
+
+.card-view-cadastro .genero-select-view-cadastro { 
+    margin-left: 10px;
+    width: 135px 
+}
+
+.card-view-cadastro .row-view-cadastro { 
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.card-view-cadastro .numero-input-view-cadastro {
+    margin-right: 15px;
+}
+
+.card-view-cadastro .button-view-cadastro {
+    margin-left: 40%;
+}
