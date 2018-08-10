@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WebApi.Entidades;
 using WebApi.Helpers;
@@ -29,11 +30,21 @@ namespace WebApi.AcessoDados
             _appContext.SaveChanges();
         }
 
-        public IQueryable<Cartao> ListarCartaoPorUsuario(int IdUsuario)
+        public List<String> ListarCartaoPorUsuario(int IdUsuario)
         {
             Usuario usuario = _appContext.Usuarios.FirstOrDefault(p => p.Id == IdUsuario);
+            IQueryable<Cartao> cartoes = _appContext.Cartoes.Where(p => p.Usuario == usuario);
 
-            return _appContext.Cartoes.Where(p => p.Usuario == usuario);
+            List<String> numeroCartao = new List<String>();
+
+            for(int i = 0; i < cartoes.ToArray().Length; i++)
+            {
+                Cartao cartao = new Cartao();
+                cartao.Numero = CriptografarDados.Desciptografar(cartoes.ToArray()[i].Numero);
+                numeroCartao.Add(cartao.Numero);
+            }
+
+            return numeroCartao;
         }
 
         public Usuario Login(string login)
