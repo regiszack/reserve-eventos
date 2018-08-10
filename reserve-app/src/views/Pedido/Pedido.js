@@ -144,10 +144,10 @@ class Pedido extends Component {
   listarCartoes() {
     if (!this.state.cartoes)
       return;
-
-    return this.state.cartoes.map(cartao => {
-      return (
-        <option key={cartao.id} value={cartao.id}>{cartao.numero}</option>
+   
+    return this.state.cartoes.map(numero => {
+      return (       
+        <option key={numero} value={numero}>{numero}</option>
       )
     })
   }
@@ -162,9 +162,9 @@ class Pedido extends Component {
 
     const idUsuario = parseInt(localStorage.getItem('userId'), 10)
     const cartao = {
-      "numero": this.state.numero,
+      "numero": (this.state.numero).toString(),
       "validade": this.state.validade,
-      "cvv": this.state.cvv,
+      "cvv": (this.state.cvv).toString(),
       "titular": this.state.titular
     }
 
