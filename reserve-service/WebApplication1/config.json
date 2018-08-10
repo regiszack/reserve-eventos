@@ -6,7 +6,7 @@
   "TokenConfigurations": {
     "Audience": "ExemploAudience",
     "Issuer": "ExemploIssuer",
-    "Seconds": 12000
+    "Seconds": 600
   },
   "Logging": {
     "IncludeScopes": false,
