@@ -29,7 +29,7 @@ namespace WebApi.AcessoDados
             _appContext.Pedidos.Add(pedido);
 
             EnviarEmail enviarEmail = new EnviarEmail();
-            enviarEmail.SendMail(usuario);
+            enviarEmail.SendMail(usuario, comando);
 
             _appContext.SaveChanges();
         }
