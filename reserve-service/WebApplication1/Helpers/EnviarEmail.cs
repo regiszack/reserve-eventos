@@ -6,7 +6,7 @@ namespace WebApi.Helpers
 {
     public class EnviarEmail
     {
-        public void SendMail(Usuario usuario)
+        public void SendMail(Usuario usuario, CriarPedidoComando comando)
         {
             MailMessage email = new MailMessage();
             email.From = new MailAddress("testereserve@gmail.com");
@@ -21,7 +21,7 @@ namespace WebApi.Helpers
             email.To.Add(new MailAddress(usuario.Email));
 
             email.IsBodyHtml = true;
-            string st = "Ola!, Voce acabou de comprar ingressos na Reserve Eventos, divirta-se!!";
+            string st = "Ola!, Voce acabou de comprar "+ comando.QuantidadeIngresso + " ingressos para " + comando.NomeEvento + " na Reserve Eventos, divirta-se!!";
 
             email.Body = st;
             smtp.Send(email);

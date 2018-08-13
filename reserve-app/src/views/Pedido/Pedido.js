@@ -157,10 +157,14 @@ class Pedido extends Component {
   }
 
   async adicionarCartao() {
+    const idUsuario = parseInt(localStorage.getItem('userId'), 10)
+
     if (!this.state.numero || !this.state.validade || !this.state.cvv || !this.state.titular)
       return toast.error("Preencha todos os campos")
 
-    const idUsuario = parseInt(localStorage.getItem('userId'), 10)
+    if (idUsuario == null)
+      return toast.error("Favor logar antes de adicionar um cartão.")
+
     const cartao = {
       "numero": (this.state.numero).toString(),
       "validade": this.state.validade,
